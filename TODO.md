@@ -54,7 +54,57 @@
 ✅ **Responsive Design**: Layout adapts well to different screen sizes
 ✅ **Navigation**: All links and buttons function correctly
 
+---
+
+# NEW TASK: Photo Size Changes for Dosen and Tendik ✅ COMPLETED
+
+## Task: Change photo sizes to 40px x 30px for dosen and tendik
+
+### Progress Tracker
+
+#### ✅ Completed Tasks
+
+1. **✅ src/components/DosenGrid.tsx**
+   - Changed image class from `w-full aspect-[3/4] object-cover` to `w-[40px] h-[30px] object-cover`
+   - Added error handling with placeholder image
+   - Status: COMPLETED
+
+2. **✅ src/components/TendikGrid.tsx**
+   - Changed image class from `w-full aspect-[3/4] object-cover` to `w-[40px] h-[30px] object-cover`
+   - Added error handling with placeholder image
+   - Status: COMPLETED
+
+3. **✅ src/app/dosen/[nidn]/page.tsx**
+   - Changed image class from `w-full aspect-[3/4] object-cover rounded-lg mb-4` to `w-[40px] h-[30px] object-cover rounded-lg mb-4`
+   - Added error handling with placeholder image
+   - Status: COMPLETED
+
+4. **✅ src/app/tendik/[nip]/page.tsx**
+   - Changed image class from `w-full aspect-[3/4] object-cover rounded-lg mb-4` to `w-[40px] h-[30px] object-cover rounded-lg mb-4`
+   - Added error handling with placeholder image
+   - Status: COMPLETED
+
+### Summary of Changes
+
+All photo sizes for dosen (lecturers) and tendik (educational staff) have been successfully changed to 40px x 30px across all relevant components:
+
+- **DosenGrid component**: Grid view of all dosen
+- **TendikGrid component**: Grid view of all tendik
+- **Dosen detail page**: Individual dosen profile page
+- **Tendik detail page**: Individual tendik profile page
+
+### Additional Improvements Made
+
+- Added error handling for all images with fallback placeholder images
+- Maintained existing styling (rounded corners, margins) while updating dimensions
+- Used Tailwind CSS utility classes for consistent styling
+
+### Task Status: ✅ COMPLETED
+
+All required changes have been implemented successfully. The photo sizes are now consistently set to 40px x 30px across the entire application for both dosen and tendik profiles.
+
 ## Previous Implementation Status
 - [x] 1. Setup Global Styles and Layout
 - [x] Dosen and Tendik Photo Grid with Activity Status Implementation
 - [x] Repositioning Tendik Grid and Portrait Mode Implementation
+- [x] **NEW: Photo Size Changes to 40px x 30px** ✅ COMPLETED
