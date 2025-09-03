@@ -1,56 +1,83 @@
-### Implementation Plan
+### Plan for Changing Photo Sizes to 40px x 30px for Dosen and Tendik
 
-#### Task Overview
-The task requires repositioning the post grid for "tendik" (staff) downwards and changing the profile photo of "dosen" (lecturers) and "tendik" to portrait mode. This involves modifying the layout and styling of the components responsible for displaying these elements.
+#### Overview
+The task is to change the photo sizes for dosen (lecturers) and tendik (educational staff) to a fixed size of 40px x 30px. This will involve modifying the relevant components where these images are displayed, ensuring that the new dimensions are applied consistently across the application.
 
 #### Dependent Files
-1. **`src/components/DosenGrid.tsx`**: Responsible for rendering the grid of lecturers.
-2. **`src/components/TendikGrid.tsx`**: Responsible for rendering the grid of staff.
-3. **`src/app/dosen/[nidn]/page.tsx`**: Page component for displaying lecturer details.
-4. **`src/app/tendik/[nip]/page.tsx`**: Page component for displaying staff details.
-5. **`tailwind.config.ts`**: Configuration file for Tailwind CSS, which may need updates for new styles.
+1. **src/components/DosenGrid.tsx**
+2. **src/components/TendikGrid.tsx**
+3. **src/app/dosen/[nidn]/page.tsx**
+4. **src/app/tendik/[nip]/page.tsx**
 
 #### Step-by-Step Changes
 
-1. **Update `src/components/DosenGrid.tsx`**
-   - Locate the section where the profile images are rendered.
-   - Change the CSS class for the profile images to apply a portrait aspect ratio. This can be done by adding a class like `aspect-[portrait]` or similar.
-   - Ensure that the layout of the grid is adjusted to accommodate the new positioning.
+1. **src/components/DosenGrid.tsx**
+   - Locate the `<img>` tag displaying the dosen photo.
+   - Change the class from `className="w-full aspect-[3/4] object-cover"` to `className="w-[40px] h-[30px] object-cover"` to set the fixed dimensions.
+   - Ensure that the aspect ratio is not applied since we want a fixed size.
 
-2. **Update `src/components/TendikGrid.tsx`**
-   - Similar to the `DosenGrid`, locate the profile image rendering section.
-   - Apply the same changes to ensure the profile images are displayed in portrait mode.
-   - Adjust the layout to ensure the post grid is positioned correctly below the profile images.
+   ```javascript
+   <img
+     src={dosen.foto}
+     alt={dosen.nama}
+     className="w-[40px] h-[30px] object-cover"
+   />
+   ```
 
-3. **Modify `src/app/dosen/[nidn]/page.tsx`**
-   - Ensure that the layout reflects the changes made in the `DosenGrid`.
-   - Check for any specific styles or classes that may need to be updated to maintain consistency.
+2. **src/components/TendikGrid.tsx**
+   - Locate the `<img>` tag displaying the tendik photo.
+   - Change the class from `className="w-full aspect-[3/4] object-cover"` to `className="w-[40px] h-[30px] object-cover"` to set the fixed dimensions.
 
-4. **Modify `src/app/tendik/[nip]/page.tsx`**
-   - Similar to the `dosen` page, ensure that the layout reflects the changes made in the `TendikGrid`.
-   - Update any relevant styles or classes.
+   ```javascript
+   <img
+     src={tendik.foto}
+     alt={tendik.nama}
+     className="w-[40px] h-[30px] object-cover"
+   />
+   ```
 
-5. **Update `tailwind.config.ts`**
-   - If new classes for portrait images are introduced, ensure they are defined in the Tailwind configuration.
-   - Add any necessary custom styles to support the new layout.
+3. **src/app/dosen/[nidn]/page.tsx**
+   - Locate the `<img>` tag displaying the dosen photo.
+   - Change the class from `className="w-full aspect-[3/4] object-cover rounded-lg mb-4"` to `className="w-[40px] h-[30px] object-cover rounded-lg mb-4"` to set the fixed dimensions.
 
-6. **Testing and Validation**
-   - Run the development server using `npm run dev`.
-   - Navigate to the relevant pages to ensure that the profile images are displayed in portrait mode and that the post grid is positioned correctly.
-   - Check for responsiveness and ensure that the layout works well on different screen sizes.
+   ```javascript
+   <img
+     src={dosenData.foto}
+     alt={dosenData.nama}
+     className="w-[40px] h-[30px] object-cover rounded-lg mb-4"
+   />
+   ```
 
-7. **Error Handling**
-   - Ensure that if images fail to load, a fallback image or placeholder is displayed.
-   - Implement graceful error handling for any layout issues that may arise during rendering.
+4. **src/app/tendik/[nip]/page.tsx**
+   - Locate the `<img>` tag displaying the tendik photo.
+   - Change the class from `className="w-full aspect-[3/4] object-cover rounded-lg mb-4"` to `className="w-[40px] h-[30px] object-cover rounded-lg mb-4"` to set the fixed dimensions.
 
-### UI/UX Considerations
-- The profile images should have a consistent aspect ratio to maintain a clean and professional appearance.
-- The layout should be responsive, ensuring that it looks good on both desktop and mobile devices.
-- Adequate spacing should be maintained between elements to enhance readability and visual appeal.
+   ```javascript
+   <img
+     src={tendikData.foto}
+     alt={tendikData.nama}
+     className="w-[40px] h-[30px] object-cover rounded-lg mb-4"
+   />
+   ```
+
+#### UI/UX Considerations
+- Ensure that the new image sizes do not disrupt the layout of the components. The fixed dimensions should maintain a clean and organized appearance.
+- Test the changes on different screen sizes to ensure responsiveness and that the images are displayed correctly.
+
+#### Error Handling
+- Implement error handling for image loading failures by adding an `onError` handler to the `<img>` tags to display a placeholder image if the original fails to load.
+
+```javascript
+<img
+  src={dosen.foto}
+  alt={dosen.nama}
+  className="w-[40px] h-[30px] object-cover"
+  onError={(e) => { e.currentTarget.src = "https://placehold.co/40x30?text=Image+Not+Available"; }}
+/>
+```
 
 ### Summary
-- Update `DosenGrid` and `TendikGrid` components to change profile images to portrait mode.
-- Adjust the layout in both `dosen` and `tendik` pages to reposition the post grid.
-- Modify `tailwind.config.ts` for any new styles.
-- Test the changes for responsiveness and error handling.
-- Ensure a clean and modern UI that adheres to best practices in accessibility and design.
+- Modify the image dimensions for dosen and tendik in four files: DosenGrid.tsx, TendikGrid.tsx, and their respective detail pages.
+- Change the class names to set fixed dimensions of 40px x 30px.
+- Implement error handling for image loading failures.
+- Ensure the layout remains intact and responsive after changes.
