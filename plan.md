@@ -1,7 +1,7 @@
-### Plan for Changing Photo Sizes to 40px x 30px for Dosen and Tendik
+### Plan for Changing Photo Sizes to 400px x 300px for Dosen and Tendik
 
 #### Overview
-The task is to change the photo sizes for dosen (lecturers) and tendik (educational staff) to a fixed size of 40px x 30px. This will involve modifying the relevant components where these images are displayed, ensuring that the new dimensions are applied consistently across the application.
+The task is to change the photo sizes for dosen (lecturers) and tendik (educational staff) to a fixed size of 400px x 300px. This will involve modifying the relevant components where these images are displayed, ensuring that the new dimensions are applied consistently across the application.
 
 #### Dependent Files
 1. **src/components/DosenGrid.tsx**
@@ -13,50 +13,50 @@ The task is to change the photo sizes for dosen (lecturers) and tendik (educatio
 
 1. **src/components/DosenGrid.tsx**
    - Locate the `<img>` tag displaying the dosen photo.
-   - Change the class from `className="w-full aspect-[3/4] object-cover"` to `className="w-[40px] h-[30px] object-cover"` to set the fixed dimensions.
+   - Change the class from `className="w-full aspect-[3/4] object-cover"` to `className="w-[400px] h-[300px] object-cover"` to set the fixed dimensions.
    - Ensure that the aspect ratio is not applied since we want a fixed size.
 
    ```javascript
    <img
      src={dosen.foto}
      alt={dosen.nama}
-     className="w-[40px] h-[30px] object-cover"
+     className="w-[400px] h-[300px] object-cover"
    />
    ```
 
 2. **src/components/TendikGrid.tsx**
    - Locate the `<img>` tag displaying the tendik photo.
-   - Change the class from `className="w-full aspect-[3/4] object-cover"` to `className="w-[40px] h-[30px] object-cover"` to set the fixed dimensions.
+   - Change the class from `className="w-full aspect-[3/4] object-cover"` to `className="w-[400px] h-[300px] object-cover"` to set the fixed dimensions.
 
    ```javascript
    <img
      src={tendik.foto}
      alt={tendik.nama}
-     className="w-[40px] h-[30px] object-cover"
+     className="w-[400px] h-[300px] object-cover"
    />
    ```
 
 3. **src/app/dosen/[nidn]/page.tsx**
    - Locate the `<img>` tag displaying the dosen photo.
-   - Change the class from `className="w-full aspect-[3/4] object-cover rounded-lg mb-4"` to `className="w-[40px] h-[30px] object-cover rounded-lg mb-4"` to set the fixed dimensions.
+   - Change the class from `className="w-full aspect-[3/4] object-cover rounded-lg mb-4"` to `className="w-[400px] h-[300px] object-cover rounded-lg mb-4"` to set the fixed dimensions.
 
    ```javascript
    <img
      src={dosenData.foto}
      alt={dosenData.nama}
-     className="w-[40px] h-[30px] object-cover rounded-lg mb-4"
+     className="w-[400px] h-[300px] object-cover rounded-lg mb-4"
    />
    ```
 
 4. **src/app/tendik/[nip]/page.tsx**
    - Locate the `<img>` tag displaying the tendik photo.
-   - Change the class from `className="w-full aspect-[3/4] object-cover rounded-lg mb-4"` to `className="w-[40px] h-[30px] object-cover rounded-lg mb-4"` to set the fixed dimensions.
+   - Change the class from `className="w-full aspect-[3/4] object-cover rounded-lg mb-4"` to `className="w-[400px] h-[300px] object-cover rounded-lg mb-4"` to set the fixed dimensions.
 
    ```javascript
    <img
      src={tendikData.foto}
      alt={tendikData.nama}
-     className="w-[40px] h-[30px] object-cover rounded-lg mb-4"
+     className="w-[400px] h-[300px] object-cover rounded-lg mb-4"
    />
    ```
 
@@ -71,7 +71,7 @@ The task is to change the photo sizes for dosen (lecturers) and tendik (educatio
 <img
   src={dosen.foto}
   alt={dosen.nama}
-  className="w-[40px] h-[30px] object-cover"
+  className="w-[400px] h-[300px] object-cover"
   onError={(e) => { e.currentTarget.src = "https://placehold.co/40x30?text=Image+Not+Available"; }}
 />
 ```
